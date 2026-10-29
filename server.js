@@ -42,26 +42,26 @@ app.use(morgan('dev'))
 // Routes go here
 
 app.get('/',(req,res)=>{
-    res.render('homepage')
+    res.render('homepage')//removed '.ejs' as it's not needed
 })
 
 
 
-app.get('/zaids', async (req,res)=>{ //adding / zaid 
+app.get('/zaid', async (req,res)=>{ //adding / zaid 
     const allZaids = await Zaid.find()
-    res.render('all-zaids.ejs',{zaids: allZaids})
+    res.render('all-zaids',{zaids: allZaids}) //removed '.ejs' as it's not needed
 })
 
-app.get('/zaids/new', (req, res)=>{  //changed to correct route for creating a new zaid
-    res.render('create-zaid.ejs') // removed './views/' as it's not needed
+app.get('/zaid/new', (req, res)=>{  //changed to correct route for creating a new zaid
+    res.render('create-zaid') // removed './views/' as it's not needed
 })
 
-app.post('/zaids', async (req,res)=>{
+app.post('/zaid', async (req,res)=>{
 
     try{
     req.body.isPublic = Boolean(req.body.isPublic)
     const createdZaid = await Zaid.create(req.body)
-    res.redirect('/zaids')
+    res.redirect('/zaid')
 
     }
     catch(err){
@@ -71,16 +71,16 @@ app.post('/zaids', async (req,res)=>{
 })
 
 
-app.get('/zaids/:zaidId', async (req,res)=>{
+app.get('/zaid/:zaidId', async (req,res)=>{
     const foundZaid = await Zaid.findById(req.params.zaidId)
-    res.render('zaid-details.ejs',{zaid: foundZaid})
+    res.render('zaid-details',{zaid: foundZaid})
 })
 
 
 
-app.delete('/zaids/:id',async(req,res)=>{
+app.delete('/zaid/:id',async(req,res)=>{
     await Zaid.findByIdAndDelete(req.params.id)
-    res.redirect('/zaids')
+    res.redirect('/zaid')
 })
 
 

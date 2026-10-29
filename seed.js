@@ -1,7 +1,6 @@
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const mongoose = require("mongoose")
-
-
+    
 
 // Schema
 const zaidSchema = new mongoose.Schema({
@@ -31,7 +30,7 @@ async function conntectToDB(){ //connection to the database
     }
 }
 
-
+conntectToDB() // connect to database
 
 
 
