@@ -1,4 +1,4 @@
-const mongoose = require('mangoose')
+const mongoose = require('mongoose') //change to mongoose 
 
 
 // Schema
@@ -18,4 +18,4 @@ const zaidSchema = new mongoose.Schema({
 // model
 const Zaid = mongoose.model('Zaid',zaidSchema)
 
-module.exports = Zaid
+module.exports = Zaid  //change to ecports 

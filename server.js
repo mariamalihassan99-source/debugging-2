@@ -3,7 +3,7 @@ const express = require("express") //importing express package
 const app = express() // creates a express application
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const mongoose = require("mongoose")
-const Zaid = require('./models/Ziad')
+const Zaid = require('./models/Zaid.js')
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 
@@ -47,13 +47,13 @@ app.get('/',(req,res)=>{
 
 
 
-app.get('zaids', async (req,res)=>{
+app.get('/zaids', async (req,res)=>{ //adding / zaid 
     const allZaids = await Zaid.find()
     res.render('all-zaids.ejs',{zaids: allZaids})
 })
 
-app.get('/zaids/new', (res, req)=>{
-    res.render('./views/create-zaid.ejs')
+app.get('/zaids/new', (req, res)=>{  //changed to correct route for creating a new zaid
+    res.render('create-zaid.ejs') // removed './views/' as it's not needed
 })
 
 app.post('/zaids', async (req,res)=>{
@@ -61,7 +61,7 @@ app.post('/zaids', async (req,res)=>{
     try{
     req.body.isPublic = Boolean(req.body.isPublic)
     const createdZaid = await Zaid.create(req.body)
-    res.redirect('/all-zaids.ejs')
+    res.redirect('/zaids')
 
     }
     catch(err){
@@ -72,7 +72,7 @@ app.post('/zaids', async (req,res)=>{
 
 
 app.get('/zaids/:zaidId', async (req,res)=>{
-    const foundZaid = await Zaid.findById(req.params)
+    const foundZaid = await Zaid.findById(req.params.zaidId)
     res.render('zaid-details.ejs',{zaid: foundZaid})
 })
 
