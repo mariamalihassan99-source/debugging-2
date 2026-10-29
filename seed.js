@@ -30,7 +30,6 @@ async function conntectToDB(){ //connection to the database
     }
 }
 
-conntectToDB() // connect to database
 
 
 
