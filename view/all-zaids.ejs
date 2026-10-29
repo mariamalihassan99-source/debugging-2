@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>All Zaids</h1>
+
+    <% for(let onezaid of zaids){ %>
+        <div class="zaid-container">
+            <h2> <%= onezaid.name %> </h2>
+            <a href="/zaids<%=onezaid._id%>">Show <%= onezaid.name %> Details</a>
+            <br>
+            <img class="zaid-image-sm" src="<%=onezaid.zaidImage%>" alt="<%=onezaid.name%>">
+        </div>
+       
+    <% } %>
+</body>
+</html>

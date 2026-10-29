@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaid Details</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <h1>Zaid Details</h1>
+
+    <p>Name: <%= zaid.name </p>
+
+    <img class="zaid-image" src="<% zaid.zaidImage %>" alt="<% zaid.name %>">
+   
+
+    <form action="/zaids/<%= zaid._id %>?_method=DELETE" method="post">
+        <button>Delete Zaid</button>
+    </form>
+</body>
+</html>

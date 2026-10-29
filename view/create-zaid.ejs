@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>Create Zaid</h1>
+
+    <form action="/zaids" method="post">
+        <label for="name">Name:</label>
+        <input name="name" id="name" type="text">
+
+        <label for="zaidImage">Zaid Image</label>
+        <input name="zaidImage" id="zaidImage" type="image">
+
+        <label for="isPublic">Is Public?</label>
+        <input name="isPublic" id="isPublic" type="checkbox">
+
+        <button type="submit">Create Zaid</button>
+    </form>
+</body>
+</html>
