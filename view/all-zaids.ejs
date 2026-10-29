@@ -11,10 +11,10 @@
     <%- include('./partials/navbar') %>
     <h1>All Zaids</h1>
 
-    <% for(let onezaid of zaids){ %>
+    <% for(let onezaid of zaid){ %>
         <div class="zaid-container">
             <h2> <%= onezaid.name %> </h2>
-            <a href="/zaids<%=onezaid._id%>">Show <%= onezaid.name %> Details</a>
+            <a href="/zaid/<%=onezaid._id%>">Show <%= onezaid.name %> Details</a>
             <br>
             <img class="zaid-image-sm" src="<%=onezaid.zaidImage%>" alt="<%=onezaid.name%>">
         </div>
